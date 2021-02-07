@@ -127,14 +127,14 @@ public class CoopTrigger : MonoBehaviour
 
         if (ActiveCamera == 1) {
 
-            Player1Camera.enabled = false;
-            Player2Camera.enabled = true;
+            //Player1Camera.enabled = false;
+            //Player2Camera.enabled = true;
 
             Player1Controller.enableCameraMovement = false;
             Player2Controller.enableCameraMovement = true;
         } else {
-            Player1Camera.enabled = true;
-            Player2Camera.enabled = false;
+            //Player1Camera.enabled = true;
+            //Player2Camera.enabled = false;
 
             Player1Controller.enableCameraMovement = true;
             Player2Controller.enableCameraMovement = false;
