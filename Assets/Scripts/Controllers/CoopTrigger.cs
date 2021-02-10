@@ -85,8 +85,8 @@ public class CoopTrigger : MonoBehaviour
         if (ActivePlayer == 1) {
 
             //Player2Camera.gameObject.SetActive(true);
-            Player1Camera.enabled = false;
-            Player2Camera.enabled = true;
+            //Player1Camera.enabled = false;
+            //Player2Camera.enabled = true;
 
             Player1Controller.useHeadbob = true;
             Player2Controller.useHeadbob = true;
@@ -104,8 +104,8 @@ public class CoopTrigger : MonoBehaviour
         } else {
 
             //Player1Camera.gameObject.SetActive(true);
-            Player1Camera.enabled = true;
-            Player2Camera.enabled = false;
+            //Player1Camera.enabled = true;
+            //Player2Camera.enabled = false;
 
             //Player2Controller.playerCamera = Player1Camera;
             //Player2Camera.gameObject.SetActive(false);
