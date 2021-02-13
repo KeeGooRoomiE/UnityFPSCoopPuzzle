@@ -108,7 +108,9 @@ public class FirstPersonAIO : MonoBehaviour {
     #region Movement Settings
 
     public bool playerCanMove = true;
+    
     public bool walkByDefault = true;
+    public bool playerOrder = false;
     public float walkSpeed = 4f;
     public KeyCode sprintKey = KeyCode.LeftShift;
     public float sprintSpeed = 8f;
@@ -450,9 +452,21 @@ public class FirstPersonAIO : MonoBehaviour {
                 }
                 Debug.DrawRay(transform.position, MoveDirection,Color.red,0,false);
             #endregion
-            
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        /*    
+        if (playerOrder == 1) {
+            float horizontalInput = Input.GetAxis("Horizontal");
+        } else {
+            float horizontalInput = Input.GetAxis("Horizontal2");
+            }
+        if (playerOrder == 1) {
+            float verticalInput = Input.GetAxis("Vertical");
+        } else {
+            float verticalInput = Input.GetAxis("Vertical2");
+        }
+        */
+        float horizontalInput = playerOrder ? Input.GetAxis("Horizontal") : Input.GetAxis("Horizontal2");
+        float verticalInput = playerOrder ? Input.GetAxis("Vertical") : Input.GetAxis("Vertical2");
+
         inputXY = new Vector2(horizontalInput, verticalInput);
         if(inputXY.magnitude > 1) { inputXY.Normalize(); }
 
@@ -951,6 +965,7 @@ public class FirstPersonAIO : MonoBehaviour {
             t.playerCanMove = EditorGUILayout.ToggleLeft(new GUIContent("Enable Player Movement","Determines if the player is allowed to move."),t.playerCanMove);
             GUI.enabled = t.playerCanMove;
             t.walkByDefault = EditorGUILayout.ToggleLeft(new GUIContent("Walk By Default","Determines if the default mode of movement is 'Walk' or 'Srpint'."),t.walkByDefault);
+            t.playerOrder = EditorGUILayout.ToggleLeft(new GUIContent("is First Player controls?","Bool for toggling player controls."),t.playerOrder);
             t.walkSpeed = EditorGUILayout.Slider(new GUIContent("Walk Speed","Determines how fast the player walks."),t.walkSpeed,0.1f,10);
             t.sprintKey = (KeyCode)EditorGUILayout.EnumPopup(new GUIContent("Sprint Key","Determines what key needs to be pressed to enter a sprint"),t.sprintKey);
             t.sprintSpeed = EditorGUILayout.Slider(new GUIContent("Sprint Speed","Determines how fast the player sprints."),t.sprintSpeed,0.1f,20);

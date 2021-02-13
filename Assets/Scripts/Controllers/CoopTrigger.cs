@@ -100,7 +100,7 @@ public class CoopTrigger : MonoBehaviour
             Player2Controller.Crosshair = null;//Player1Cross;
             
             Player1Controller.playerCanMove = true;
-            Player2Controller.playerCanMove = false;
+            Player2Controller.playerCanMove = true;//false;
         } else {
 
             //Player1Camera.gameObject.SetActive(true);
@@ -121,7 +121,7 @@ public class CoopTrigger : MonoBehaviour
             Player1Controller.Crosshair = null;//Player2Cross;
             Player2Controller.Crosshair = Player2Cross;
 
-            Player1Controller.playerCanMove = false;
+            Player1Controller.playerCanMove = true;//false;
             Player2Controller.playerCanMove = true;
         }
 
@@ -143,9 +143,9 @@ public class CoopTrigger : MonoBehaviour
         if (ActiveMovement == 1) {
 
             Player1Controller.playerCanMove = true;
-            Player2Controller.playerCanMove = false;
+            Player2Controller.playerCanMove = true;//false;
         } else {
-            Player1Controller.playerCanMove = false;
+            Player1Controller.playerCanMove = true;//false;
             Player2Controller.playerCanMove = true;
         }
     }
