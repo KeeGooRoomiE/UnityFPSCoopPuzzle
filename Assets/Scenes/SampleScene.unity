@@ -164,7 +164,7 @@ MonoBehaviour:
   cameraSmoothing: 1
   lockAndHideCursor: 1
   playerCamera: {fileID: 2110875227}
-  enableCameraShake: 1
+  enableCameraShake: 0
   autoCrosshair: 0
   drawStaminaMeter: 1
   Crosshair: {fileID: 21300000, guid: abbdf4e289368844880a464964ee733f, type: 3}
@@ -6237,14 +6237,14 @@ MonoBehaviour:
   controllerPauseState: 0
   enableCameraMovement: 1
   mouseInputInversion: 0
-  cameraInputMethod: 0
+  cameraInputMethod: 2
   verticalRotationRange: 170
   mouseSensitivity: 8
   fOVToMouseSensitivity: 1
   cameraSmoothing: 1
   lockAndHideCursor: 1
   playerCamera: {fileID: 20724644348430523}
-  enableCameraShake: 1
+  enableCameraShake: 0
   autoCrosshair: 0
   drawStaminaMeter: 1
   Crosshair: {fileID: 21300000, guid: 1029033f10cbbae4484b4e6e7fbef18e, type: 3}
