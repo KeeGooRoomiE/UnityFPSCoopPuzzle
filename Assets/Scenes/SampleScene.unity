@@ -5866,6 +5866,7 @@ GameObject:
   - component: {fileID: 54587623623517933}
   - component: {fileID: 136239538824876807}
   - component: {fileID: 114051214233721563}
+  - component: {fileID: 1743903583647262}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -5873,6 +5874,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1743903583647262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743903583647261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53987534012988c49b0aace59f96673c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isArrowControls: 1
+  head: {fileID: 4288335233764835}
+  playerBody: {fileID: 1743903583647261}
+  PlayerController: {fileID: 114051214233721563}
+  xScale: 10
+  yScale: 60
+  tiltAroundY: 0
+  tiltAroundX: 0
 --- !u!4 &4204582579721417
 Transform:
   m_ObjectHideFlags: 0
@@ -6235,9 +6256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerPauseState: 0
-  enableCameraMovement: 1
+  enableCameraMovement: 0
   mouseInputInversion: 0
-  cameraInputMethod: 2
+  cameraInputMethod: 0
   verticalRotationRange: 170
   mouseSensitivity: 8
   fOVToMouseSensitivity: 1

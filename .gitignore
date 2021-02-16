@@ -22,6 +22,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Compiled versions 
+/App
+
 # Gradle cache directory
 .gradle/
 
@@ -60,3 +63,4 @@ crashlytics-build.properties
 
 
 Fingerprints/
+App/Win/FPSCoop17022021.zip
