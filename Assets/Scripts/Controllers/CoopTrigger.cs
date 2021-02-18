@@ -9,6 +9,9 @@ public class CoopTrigger : MonoBehaviour
     public int ActiveCamera;
     public int ActiveMovement;
 
+    public bool isPlayer1Following = false;
+    public bool isPlayer2Following = false;
+
     public Sprite Player1Cross;
     public Sprite Player2Cross;
 
@@ -36,6 +39,7 @@ public class CoopTrigger : MonoBehaviour
     {
 
         //Triggers change between players
+        /*
         if (Input.GetKeyUp(KeyCode.Tab)) {
             if (ActivePlayer == 1) {
                 ActivePlayer = 2;
@@ -48,8 +52,10 @@ public class CoopTrigger : MonoBehaviour
                 ActiveMovement = 1;
             }
         }
+        */
 
         //Pressing Q triggers camera change
+        /*
         if (Input.GetKeyUp(KeyCode.Q)) {
             if (ActiveCamera == 1) {
                 ActiveCamera = 2;
@@ -58,8 +64,10 @@ public class CoopTrigger : MonoBehaviour
                 ActiveCamera = 1;
             }
         }
+        */
 
         //Pressing E triggers movement change
+        /*
         if (Input.GetKeyUp(KeyCode.E)) {
             if (ActiveMovement == 1) {
                 ActiveMovement = 2;
@@ -68,6 +76,7 @@ public class CoopTrigger : MonoBehaviour
                 ActiveMovement = 1;
             }
         }
+        */
 
         /*
         //If Camera and Movement belongs to one setup
@@ -88,8 +97,8 @@ public class CoopTrigger : MonoBehaviour
             //Player1Camera.enabled = false;
             //Player2Camera.enabled = true;
 
-            Player1Controller.useHeadbob = true;
-            Player2Controller.useHeadbob = true;
+            //Player1Controller.useHeadbob = true;
+            //Player2Controller.useHeadbob = true;
 
             //Player1Controller.enableCameraMovement = false;
             Player2Controller.enableCameraMovement = true;
@@ -110,8 +119,8 @@ public class CoopTrigger : MonoBehaviour
             //Player2Controller.playerCamera = Player1Camera;
             //Player2Camera.gameObject.SetActive(false);
 
-            Player2Controller.useHeadbob = true;
-            Player1Controller.useHeadbob = true;
+            //Player2Controller.useHeadbob = true;
+            //Player1Controller.useHeadbob = true;
 
             //Player1Controller.enableCameraMovement = true;
             Player2Controller.enableCameraMovement = false;
@@ -148,5 +157,34 @@ public class CoopTrigger : MonoBehaviour
             Player1Controller.playerCanMove = true;//false;
             Player2Controller.playerCanMove = true;
         }
+
+        //Triggers chasing player 1 rotation 
+        if (Input.GetKeyUp(KeyCode.T)) {
+            isPlayer1Following = !isPlayer1Following;
+        }
+
+        //Triggers chasing player 2 rotation 
+        if (Input.GetKeyUp(KeyCode.G)) {
+            isPlayer2Following = !isPlayer2Following;
+        }
+
+
+        if (isPlayer1Following == true) {
+            Player1Controller.enableCameraMovement = false;
+            Player1Camera.gameObject.transform.LookAt(Player2Controller.gameObject.transform);
+            Player1Controller.gameObject.transform.LookAt(Player2Controller.gameObject.transform);
+        } else {
+            Player1Controller.enableCameraMovement = true;
+        }
+
+        if (isPlayer2Following == true) {
+            Player2Controller.enableCameraMovement = false;
+            Player2Camera.gameObject.transform.LookAt(Player1Controller.gameObject.transform);
+            Player2Controller.gameObject.transform.LookAt(Player1Controller.gameObject.transform);
+            //transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        } else {
+            Player2Controller.enableCameraMovement = true;
+        }
+        
     }
 }

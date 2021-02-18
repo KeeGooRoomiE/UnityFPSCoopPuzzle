@@ -14,6 +14,7 @@ public class CameraControls : MonoBehaviour
     public float yScale;
     public float tiltAroundY = 0;
     public float tiltAroundX = 0;
+    public GameObject coopControl;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +36,17 @@ public class CameraControls : MonoBehaviour
             // Rotate the cube by converting the angles into a quaternion.
             Quaternion target = Quaternion.Euler(0, tiltAroundY, 0);
 
-            // Dampen towards the target rotation
-            playerBody.transform.localRotation = Quaternion.Slerp(playerBody.transform.localRotation, target,  Time.deltaTime * 5.0f);
+            
 
             Quaternion target2 = Quaternion.Euler(tiltAroundX, 0, 0);
 
-            // Dampen towards the target rotation
-            head.localRotation = Quaternion.Slerp(head.localRotation, target2,  Time.deltaTime * 5.0f);
+            if (coopControl.GetComponent<CoopTrigger>().isPlayer1Following == false) {
+                // Dampen towards the target rotation
+                playerBody.transform.localRotation = Quaternion.Slerp(playerBody.transform.localRotation, target,  Time.deltaTime * 5.0f);
+
+                // Dampen towards the target rotation
+                head.localRotation = Quaternion.Slerp(head.localRotation, target2,  Time.deltaTime * 5.0f);
+            }
         } else {
             PlayerController.enableCameraMovement = true;
         }
